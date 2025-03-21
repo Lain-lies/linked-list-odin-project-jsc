@@ -7,15 +7,16 @@ class LinkedList {
   }
 
   append(node) {
+    node.prev = this.tail;
     this.size++;
     this.tail.next = node;
     this.tail = node;
   }
 
   prepend(node) {
-    const temp = this.head;
+    this.size++;
+    node.next = this.head;
     this.head = node;
-    this.head.next = temp;
   }
 
   toString() {
@@ -31,37 +32,35 @@ class LinkedList {
 
     console.log(string);
   }
-  
-  length(){
+
+  length() {
     return this.size;
   }
-  
-  getHead(){
+
+  getHead() {
     return this.head;
   }
-  
-  getTail(){
+
+  getTail() {
     return this.tail;
   }
 
-  at(n){
-    
+  at(n) {
     let i = 0;
     let cursor = this.head;
 
-    while(i !== n){  
-      c
+    while (i !== n) {
+      c;
     }
-    
+
     return cursor.value;
-
   }
-
 }
 
 function createNode(value) {
   return {
     value: value,
+    prev: null,
     next: null,
   };
 }
@@ -71,7 +70,7 @@ list.append(createNode(2));
 list.append(createNode(3));
 list.append(createNode(4));
 list.prepend(createNode(0));
+list.prepend(createNode(-1));
 list.toString();
 
 console.log(list.length());
-
